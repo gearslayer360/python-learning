@@ -1,4 +1,4 @@
-#This program will print numbers from 1 to 1000
+# This program will print numbers from 1 to 1000
 # and with their correct ending such as "st", "nd", "rd", or "th"
 
 numbers = []
