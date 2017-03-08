@@ -4,7 +4,6 @@
 num = 0
 factorial = 1
 
-
 def prompt():
     num = input(print("Enter a number:"))
     num = int(num)
@@ -23,9 +22,10 @@ if num == 0:
 
 else:
     print(str(num) + "!")
+    print(len(range(num, 1, -1)))
     for i in range(num, 1, -1):
         print(str(i) + "*", end="")
-        if i == 2:
+        if i == num - len(range(num, 1, -1)) +1:
             print("1")
         factorial *= i
     print("The factorial of " + str(num) + " is " + str(factorial))
