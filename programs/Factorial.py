@@ -4,6 +4,7 @@
 num = 0
 factorial = 1
 
+
 def prompt():
     num = input(print("Enter a number:"))
     num = int(num)
@@ -22,7 +23,6 @@ if num == 0:
 
 else:
     print(str(num) + "!")
-    print(len(range(num, 1, -1)))
     for i in range(num, 1, -1):
         print(str(i) + "*", end="")
         if i == num - len(range(num, 1, -1)) +1:
