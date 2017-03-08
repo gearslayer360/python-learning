@@ -22,6 +22,10 @@ if num == 0:
     print("The factorial of 0 is 1")
 
 else:
-    for i in range(1, num+1):
+    print(str(num) + "!")
+    for i in range(num, 1, -1):
+        print(str(i) + "*", end="")
+        if i == 2:
+            print("1")
         factorial *= i
     print("The factorial of " + str(num) + " is " + str(factorial))
