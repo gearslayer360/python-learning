@@ -10,6 +10,8 @@
 #-------------------------------------------------------------------------------
 #!/usr/bin/env python
 
+#trying to get this to work again
+
 from Graphics import *
 
 def main():
