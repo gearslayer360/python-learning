@@ -10,7 +10,7 @@
 #-------------------------------------------------------------------------------
 #!/usr/bin/env python
 
-#trying to get this to work again
+#Fixed on 3/8/2017
 
 from Graphics import *
 
