@@ -828,7 +828,7 @@ class Image(GraphicsObject):
         if type(value) ==  type(0):
             return [value, value, value]
         else:
-            return list(map(int, value.split()))
+            return value[0], value[1], value[2]
 
     def setPixel(self, x, y, color):
         """Sets pixel (x,y) to the given color
