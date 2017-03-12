@@ -9,6 +9,7 @@
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 #!/usr/bin/env python
+# Hotel Simulation
 
 def numberOfFloors():
     global floors
