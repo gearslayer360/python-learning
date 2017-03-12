@@ -1,5 +1,5 @@
-#This program calculates and prints the factorial of a number
-#3/5/2017
+# This program calculates and prints the factorial of a number
+# 3/5/2017
 
 num = 0
 factorial = 1
