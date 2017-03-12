@@ -1,3 +1,4 @@
+# Checks to see if your birthday appears in the first 1 million digits of pi
 
 filename = "pi_digits.txt"
 
