@@ -1,4 +1,4 @@
-# Program to read a file
+# Program to read a text file
 
 filename = "pi_digits.txt"
 
