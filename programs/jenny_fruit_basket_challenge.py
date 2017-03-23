@@ -12,7 +12,7 @@ max_price = 500  # total money we have to spend
 current_price = 0  # current price of all objects being totaled
 max_fruit = []  # maximum number of fruits we can afford for each fruit
 answers = []  # solution
-fruit_names = []
+fruit_names = []  # list of only names of fruit to reference as a dict key
 
 
 def prompt():
@@ -38,28 +38,24 @@ def calculate(curr_price, answer, num):
         max_fruit.reverse()
         fruit_names.sort()
 
-    if curr_price == max_price:
-        answer = "got one"
-        answers.append(answer)
+    if curr_price == max_price:  # If the price is a perfect match, add the answer combo to list of answers and delete current fruit
+        return answers.append(answer)
         del max_fruit[0]
-    elif curr_price < max_price:
-        for i in range(1, max_fruit[0]):
+    elif curr_price < max_price:  # If the prices don't match, keep adding fruits to the combo and incrementing the price
+        for i in range(0, max_fruit[0] -1):
             print(i)
-            if num + 1 < len(max_fruit):
-                return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer, num+1)  # max_fruit[i]
+            if num + 1 < len(max_fruit):  # While there are still fruits to go through in the list
+                if i == 0:  # Don't take one of the fruits
+                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer, num + 1)
+                elif i == 1:  # Take only one of the fruits
+                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer + fruit_names[0] + " " + ",", num + 1)
+                else:  # Taking more than one of the fruits
+                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer + fruit_names[0] + "s" + ",", num + 1)
     else:
         pass
-
 
 prompt()
 calculate(0, " ", 0)
 
 print(answers)
 print("answers above")
-
-# Print the formatted result
-for key, value in fruits.items():
-    if int(value) > 1:
-        print(value + " " + key + "s")
-    else:
-        print("1 " + key)
