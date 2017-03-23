@@ -12,7 +12,7 @@ max_price = 500  # total money we have to spend
 current_price = 0  # current price of all objects being totaled
 max_fruit = []  # maximum number of fruits we can afford for each fruit
 answers = []  # solution
-current_num = 0
+fruit_names = []
 
 
 def prompt():
@@ -33,25 +33,27 @@ def calculate(curr_price, answer, num):
     if num == 0:
         for k, v in fruits.items():
             max_fruit.insert(0, floor(500 / int(fruits[k])))
+            fruit_names.append(k)
         max_fruit.sort()
         max_fruit.reverse()
+        fruit_names.sort()
 
     if curr_price == max_price:
         answer = "got one"
         answers.append(answer)
         del max_fruit[0]
     elif curr_price < max_price:
-        for i in range(1, max_fruit[num] + 1): # might need to get rid of the +1
+        for i in range(1, max_fruit[0]):
             print(i)
             if num + 1 < len(max_fruit):
-                return calculate((curr_price + i * max_fruit[i]), answer, current_num+1)
+                return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer, num+1)  # max_fruit[i]
+    else:
+        pass
 
 
 prompt()
 calculate(0, " ", 0)
 
-print(max_fruit)
-print("max fruit above")
 print(answers)
 print("answers above")
 
