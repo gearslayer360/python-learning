@@ -9,7 +9,6 @@ from math import floor
 
 fruits = {}  # Dict of fruits and prices
 max_price = 500  # total money we have to spend
-current_price = 0  # current price of all objects being totaled
 max_fruit = []  # maximum number of fruits we can afford for each fruit
 answers = []  # solution
 fruit_names = []  # list of only names of fruit to reference as a dict key
@@ -38,24 +37,27 @@ def calculate(curr_price, answer, num):
         max_fruit.reverse()
         fruit_names.sort()
 
+    print("current price " + str(curr_price))  # test string remove later
+
     if curr_price == max_price:  # If the price is a perfect match, add the answer combo to list of answers and delete current fruit
         return answers.append(answer)
         del max_fruit[0]
     elif curr_price < max_price:  # If the prices don't match, keep adding fruits to the combo and incrementing the price
-        for i in range(0, max_fruit[0] -1):
+        for i in range(0, max_fruit[0] - 1):
             print(i)
-            if num + 1 < len(max_fruit):  # While there are still fruits to go through in the list
+            if num + 1 < len(fruit_names):  # While there are still fruits to go through in the list
                 if i == 0:  # Don't take one of the fruits
+                    print("I'm the first")  # test string remove later
                     return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer, num + 1)
                 elif i == 1:  # Take only one of the fruits
-                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer + fruit_names[0] + " " + ",", num + 1)
+                    print("I'm the second")  # test string remove later
+                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer + fruit_names[0] + " " + str(i) + ",", num + 1)
                 else:  # Taking more than one of the fruits
-                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer + fruit_names[0] + "s" + ",", num + 1)
+                    print("I'm the third")  # test string remove later
+                    return calculate((curr_price + i * int(fruits[fruit_names[0]])), answer + fruit_names[0] + "s" + str(i) + ",", num + 1)
     else:
         pass
+    return print(answers)
 
 prompt()
 calculate(0, " ", 0)
-
-print(answers)
-print("answers above")
