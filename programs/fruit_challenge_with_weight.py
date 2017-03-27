@@ -62,12 +62,6 @@ def shop(currentPrice, currentWeight, basket, fruitList):
                 newBasket += ", "
                 shop(currentPrice + (i * cost), currentWeight + (i * weight), newBasket, newList)
 
-
 shop(0, 0, "", list(fruits.keys()))
 
 print("in " + str(iterations) + " iterations, found " + str(solutionCount) + " solutions, for a payload of " + str(payload) + " and a budget of " + str(budget))
-
-
-
-
-
